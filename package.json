@@ -3,11 +3,20 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "dev:tailwind": "vite --config themes/tailwind/vite.config.js",
+        "build:tailwind": "vite build --config themes/tailwind/vite.config.js"
     },
     "devDependencies": {
+        "@tailwindcss/forms": "^0.5.7",
+        "@vitejs/plugin-vue": "^5.0.4",
+        "autoprefixer": "^10.4.19",
         "axios": "^1.6.4",
         "laravel-vite-plugin": "^1.0",
-        "vite": "^5.0"
+        "postcss": "^8.4.38",
+        "postcss-import": "^16.1.0",
+        "tailwindcss": "^3.4.3",
+        "vite": "^5.0",
+        "vue": "^3.4.27"
     }
 }
