@@ -27,9 +27,9 @@ const app = createApp({});
 //     app.component(key.split("/").pop().split(".")[0], files[key].default);
 // }
 
-import ExampleComponent from "./components/ExampleComponent.vue";
+import ChatComponent from "./components/ChatComponent.vue";
 
-app.component("example-component", ExampleComponent);
+app.component("chat-component", ChatComponent);
 
 /**
  * Next, attach Vue application instance to the page. Then, you may begin adding components to this application
