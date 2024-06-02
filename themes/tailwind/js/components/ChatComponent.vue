@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="flex flex-col justify-end h-80">
-            <div class="p-4 overflow-y-auto max-h-fit">
+            <div ref="messagesContainer" class="p-4 overflow-y-auto max-h-fit">
                 <div
                     v-for="message in messages"
                     :key="message.id"
@@ -19,10 +19,11 @@
                 </div>
             </div>
         </div>
-        <div class="flex items-center p-4">
+        <div class="flex items-center">
             <input
                 type="text"
                 v-model="newMessage"
+                @keydown="sendTypingEvent"
                 @keyup.enter="sendMessage"
                 placeholder="Type a message..."
                 class="flex-1 px-2 py-1 border rounded-lg"
@@ -34,12 +35,15 @@
                 Send
             </button>
         </div>
+        <small v-if="isFriendTyping" class="text-gray-700">
+            {{ friend.name }} is typing...
+        </small>
     </div>
 </template>
 
 <script setup>
 import axios from "axios";
-import { onMounted, ref } from "vue";
+import { nextTick, onMounted, ref, watch } from "vue";
 
 const props = defineProps({
     friend: {
@@ -54,6 +58,22 @@ const props = defineProps({
 
 const messages = ref([]);
 const newMessage = ref("");
+const messagesContainer = ref(null);
+const isFriendTyping = ref(false);
+const isFriendTypingTimer = ref(null);
+
+watch(
+    messages,
+    () => {
+        nextTick(() => {
+            messagesContainer.value.scrollTo({
+                top: messagesContainer.value.scrollHeight,
+                behavior: "smooth",
+            });
+        });
+    },
+    { deep: true }
+);
 
 const sendMessage = () => {
     if (newMessage.value.trim() !== "") {
@@ -68,10 +88,32 @@ const sendMessage = () => {
     }
 };
 
+const sendTypingEvent = () => {
+    Echo.private(`chat.${props.friend.id}`).whisper("typing", {
+        userID: props.currentUser.id,
+    });
+};
+
 onMounted(() => {
     axios.get(`/messages/${props.friend.id}`).then((response) => {
         console.log(response.data);
         messages.value = response.data;
     });
+
+    Echo.private(`chat.${props.currentUser.id}`)
+        .listen("MessageSent", (response) => {
+            messages.value.push(response.message);
+        })
+        .listenForWhisper("typing", (response) => {
+            isFriendTyping.value = response.userID === props.friend.id;
+
+            if (isFriendTypingTimer.value) {
+                clearTimeout(isFriendTypingTimer.value);
+            }
+
+            isFriendTypingTimer.value = setTimeout(() => {
+                isFriendTyping.value = false;
+            }, 1000);
+        });
 });
 </script>
