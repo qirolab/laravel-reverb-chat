@@ -49,4 +49,5 @@ Here we used `npm run dev:tailwind` instead of `npm run dev` because we created
 a `tailwind` theme using the Laravel Themer package in this project.
 
 
-[![Spec Coder](https://i.imgur.com/NBmz95e.png)](https://qirolab.com/spec-coder)
+## Support us
+[![Spec Coder](https://i.imgur.com/lqkt7a3.png)](https://qirolab.com/spec-coder)
