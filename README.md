@@ -6,6 +6,9 @@ This project provides a foundation for building a real-time chat application usi
 ## Video Tutorial
 [![Real-time Chat system](https://i3.ytimg.com/vi/8ykxcM0-3Yg/hqdefault.jpg)](https://www.youtube.com/watch?v=8ykxcM0-3Yg)
 
+**Try [Spec Coder: VSCode Extension](https://qirolab.com/spec-coder) - Code Faster & Smarter with AI!**
+
+
 
 ## Installation:
 
