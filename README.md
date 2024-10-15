@@ -52,5 +52,29 @@ Here we used `npm run dev:tailwind` instead of `npm run dev` because we created
 a `tailwind` theme using the Laravel Themer package in this project.
 
 
-## Support us
-[![Spec Coder](https://i.imgur.com/lqkt7a3.png)](https://qirolab.com/spec-coder)
+## Want to Support My Work?
+
+If you found this demo helpful and want to support my work, check out some of my other products:
+
+<div style="display:flex;">
+  <a href="https://qirolab.com/ctrl-alt-cheat" title="Ctrl+Alt+Cheat - The Ultimate Cheat Sheets at Your Fingertips">
+    <img width="200" src="https://i.imgur.com/6igLwXU.png" alt="Ctrl+Alt+Cheat" />
+  </a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://qirolab.com/spec-coder" title="Spec Coder: AI-Powered VS Code Extension">
+     <img width="200" src="https://i.imgur.com/zHSNlJu.png" alt="Spec Coder" />
+  </a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://qirolab.gumroad.com/l/javascript-from-es2015-to-es2023" title="JavaScript: A Comprehensive Guide from ES2015 to ES2023 - eBook">
+      <img width="200" src="https://i.imgur.com/vXnJAul.png" alt="JavaScript Guide" />
+  </a>
+</div>
+
+
+
+---
+
+#### Get $200 free credit for DigitalOcean! (Use this link to sign up)
+
+[![DigitalOcean Referral
+Badge](https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg)](https://www.digitalocean.com/?refcode=e740238537d0&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)
